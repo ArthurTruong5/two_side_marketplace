@@ -4,7 +4,7 @@ class SnacksController < ApplicationController
   # GET /snacks
   # GET /snacks.json
   def index
-    @snacks = Snack.all
+    @snacks = Snack.all.order("created_at desc")
   end
 
   # GET /snacks/1
@@ -14,7 +14,7 @@ class SnacksController < ApplicationController
 
   # GET /snacks/new
   def new
-    @snack = Snack.new
+    @snack = current_user.snacks.build
   end
 
   # GET /snacks/1/edit
@@ -24,7 +24,7 @@ class SnacksController < ApplicationController
   # POST /snacks
   # POST /snacks.json
   def create
-    @snack = Snack.new(snack_params)
+    @snack = current_user.snacks.build(snack_params)
 
     respond_to do |format|
       if @snack.save
@@ -69,6 +69,6 @@ class SnacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snack_params
-      params.require(:snack).permit(:title, :brand, :type, :description, :price)
+      params.require(:snack).permit(:title, :brand, :description, :price, :image)
     end
 end
