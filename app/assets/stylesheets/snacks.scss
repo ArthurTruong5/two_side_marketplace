@@ -5,3 +5,20 @@
 .style_image {
   border-right: 1px solid #000;
 }
+
+.button.secondary-btn {
+    background-color: rgb(110, 189, 255);
+    color: rgb(255, 255, 255);
+    outline: none;
+    border-color: rgb(110, 189, 255);
+    transition: all 0.5s;
+}
+
+.button.is-bold {
+    font-weight: 600;
+    border-width: 2px;
+}
+
+.button.button-cta {
+    padding: 22px 40px !important;
+}
