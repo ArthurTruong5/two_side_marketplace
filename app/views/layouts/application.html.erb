@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OtakuSnacks</title>
+    <title>GigHelp</title>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
      <nav class="navbar is-warning is-primary is-bold" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
           <figure class="image is-96x96">
-              <%= link_to image_tag("GigHelp.png"), root_path %>
+              <%= link_to image_tag("GigHelp.png") %>
           </figure>
       <div class="navbar-burger burger" data-target="navbar">
         <span></span>
@@ -46,13 +46,17 @@
                 <a class="navbar-item" href="https://bulma.io/">
                 Browse Jobs
                 </a>
+                <%= link_to "Create Job", listings_path, :class => "navbar-item" %>
+                <a class="navbar-item" href="https://bulma.io/">
+                How We Work
+                </a>
             </div>
           </div>
 
               <div class="navbar-item has-dropdown is-hoverable">
                 <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
                 <div class="navbar-dropdown is-right">
-                  <%= link_to current_user.name, edit_user_registration_path, class:"navbar-item" %>
+                  <%= link_to "Profile Account", edit_user_registration_path, class:"navbar-item" %>
                   <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"navbar-item" %>
                 </div>
               </div>
